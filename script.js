@@ -70,6 +70,28 @@ animate();
 
 /*
  *
+ *      COLLAGE
+ *
+ */
+
+let collageImages = [...document.querySelectorAll('.image')];
+
+collageImages.forEach((image, index) => {
+    image.style.backgroundImage = `url(images/${index+1}.jpg)`;
+})
+
+const images = document.querySelectorAll('.image');
+let imageSource;
+//get images source onclick
+images.forEach((img) => {
+    img.addEventListener('click', (e) => {
+        imageSource = e.target.style.backgroundImage.split('("')[1].split('")')[0];
+        console.log(imageSource);
+    })
+})
+
+/*
+ *
  *      CHASING CIRCLE
  *
  */
