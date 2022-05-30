@@ -39,12 +39,23 @@ body{
  */
 
 .carouselContainer{
-    background: royalblue;
+    /*background: royalblue;*/
     height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    width: 200%;
+    height: 120%;
+    margin-top: -40px;
 }
 
 .innerCarousel {
     position: absolute;
+    top: 15%;
+    height: 70%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
 }
