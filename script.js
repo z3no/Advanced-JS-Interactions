@@ -98,12 +98,21 @@ images.forEach((img) => {
 let imageModal = (src) => {
     const modal = document.createElement('div');
     modal.setAttribute('class', 'modal');
+
     //add the modal to the parent element
     document.querySelector('.main').append(modal);
+
     //adding the image to the modal
     const newImage = document.createElement('img');
     newImage.setAttribute('src', src);
-    modal.append(newImage);
+
+    //creating a close button
+    const closeButton = document.createElement('i');
+    closeButton.setAttribute('class', 'bi bi-x-circle closeButton');
+
+    //close function
+
+    modal.append(newImage, closeButton);
 }
 
 /*
