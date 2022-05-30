@@ -21,3 +21,10 @@ Bootstrap is NOT allowed! Good luck!
 - [ ] Chaser AND runner circle are functional
 - [ ] Lightmode/Darkmode switch
 - [ ] Final letter challenge completed
+
+****
+## Informational links
+- [getBoundingClientRect](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)
+- [window](https://developer.mozilla.org/en-US/docs/Web/API/Window)
+- [window.innerHeight](https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight)
+- [window.innerWidth](https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth)
