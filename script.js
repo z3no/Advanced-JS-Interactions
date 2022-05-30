@@ -74,21 +74,37 @@ animate();
  *
  */
 
+//Adding the images as background for the div .image
 let collageImages = [...document.querySelectorAll('.image')];
 
 collageImages.forEach((image, index) => {
     image.style.backgroundImage = `url(images/${index+1}.jpg)`;
 })
 
-const images = document.querySelectorAll('.image');
+//Get the images source onclick
+let images = document.querySelectorAll('.image');
 let imageSource;
-//get images source onclick
+
 images.forEach((img) => {
     img.addEventListener('click', (e) => {
         imageSource = e.target.style.backgroundImage.split('("')[1].split('")')[0];
         console.log(imageSource);
+        //run modal function
+        imageModal(imageSource);
     })
 })
+
+//Creating the modal
+let imageModal = (src) => {
+    const modal = document.createElement('div');
+    modal.setAttribute('class', 'modal');
+    //add the modal to the parent element
+    document.querySelector('.main').append(modal);
+    //adding the image to the modal
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', src);
+    modal.append(newImage);
+}
 
 /*
  *
