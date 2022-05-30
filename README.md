@@ -28,3 +28,4 @@ Bootstrap is NOT allowed! Good luck!
 - [window](https://developer.mozilla.org/en-US/docs/Web/API/Window)
 - [window.innerHeight](https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight)
 - [window.innerWidth](https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth)
+- [Modal boxes](https://www.w3schools.com/howto/howto_css_modals.asp)
