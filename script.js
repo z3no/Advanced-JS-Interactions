@@ -130,6 +130,15 @@ let imageModal = (src, number) => {
  *
  */
 
+let redCircle = document.querySelector('.chaser');
+let box = document.querySelector('.box');
+
+const onMouseMove = (e) => {
+    redCircle.style.left = e.pageX + 'px';
+    redCircle.style.top = e.pageY + 'px';
+}
+
+box.addEventListener('mousemove', onMouseMove);
 
 /*
  *
