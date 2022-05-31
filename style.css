@@ -24,6 +24,12 @@ body{
     background: red;
     border-radius: 50%;
     position: absolute;
+    pointer-events: none;
+    cursor: none;
+}
+
+#boxChase {
+    cursor: none;
 }
 
 /*
