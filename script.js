@@ -84,35 +84,44 @@ collageImages.forEach((image, index) => {
 //Get the images source onclick
 let images = document.querySelectorAll('.image');
 let imageSource;
+let alt;
 
 images.forEach((img) => {
     img.addEventListener('click', (e) => {
         imageSource = e.target.style.backgroundImage.split('("')[1].split('")')[0];
         console.log(imageSource);
+        const number = imageSource.replace(/[^0-9]/g,'')
+        console.log(number);
         //run modal function
-        imageModal(imageSource);
+        imageModal(imageSource, number);
     })
 })
 
 //Creating the modal
-let imageModal = (src) => {
+let imageModal = (src, number) => {
     const modal = document.createElement('div');
     modal.setAttribute('class', 'modal');
 
-    //add the modal to the parent element
+    //add the modal to the main section
     document.querySelector('.main').append(modal);
 
     //adding the image to the modal
     const newImage = document.createElement('img');
     newImage.setAttribute('src', src);
 
+    const newText = document.createElement('p');
+    newText.innerText = `This is image ${number}`;
+
     //creating a close button
     const closeButton = document.createElement('i');
     closeButton.setAttribute('class', 'bi bi-x-circle closeButton');
 
     //close function
+    closeButton.addEventListener('click', function () {
+        modal.remove();
+    });
 
-    modal.append(newImage, closeButton);
+    modal.append(newImage, newText, closeButton);
 }
 
 /*
