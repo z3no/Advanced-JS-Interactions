@@ -9,9 +9,9 @@ function randomLetter(){
 
 
 /*
- *
+ *  #########################
  *      PARALLAX CAROUSEL
- *
+ *  #########################
  */
 
 //add the images to the parallax carousel
@@ -69,9 +69,9 @@ init();
 animate();
 
 /*
- *
+ *  ###############
  *      COLLAGE
- *
+ *  ###############
  */
 
 //Adding the images as background for the div .image
@@ -125,9 +125,42 @@ let imageModal = (src, number) => {
 }
 
 /*
- *
+ *  ###############
+ *      POKEMON
+ *  ###############
+ */
+
+//Get the pokemon images
+async function pokemonImages(input) {
+    let pokeAPI = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
+    let data = await pokeAPI.json();
+    console.log(data);
+    let pokemonImage = data.sprites.front_default;
+    console.log(pokemonImage);
+}
+
+//Show the image on hover
+let input = "";
+let pokemon = document.querySelectorAll('.poke');
+
+pokemon.forEach(pokemonName => {
+    pokemonName.addEventListener('mouseover', () => {
+        if(pokemonName.innerHTML === "Farfetch'd") {
+            pokemonName.innerHTML = "Farfetchd";
+            input = pokemonName.innerHTML.toLowerCase();
+            pokemonImages(input);
+        } else {
+            input = pokemonName.innerHTML.toLowerCase();
+            pokemonImages(input);
+        }
+    })
+})
+
+
+/*
+ *  ######################
  *      CHASING CIRCLE
- *
+ *  ######################
  */
 
 let redCircle = document.querySelector('.chaser');
