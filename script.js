@@ -84,7 +84,6 @@ collageImages.forEach((image, index) => {
 //Get the images source onclick
 let images = document.querySelectorAll('.image');
 let imageSource;
-let alt;
 
 images.forEach((img) => {
     img.addEventListener('click', (e) => {
@@ -130,18 +129,9 @@ let imageModal = (src, number) => {
  *  ###############
  */
 
-//Get the pokemon images
-async function pokemonImages(input) {
-    let pokeAPI = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
-    let data = await pokeAPI.json();
-    console.log(data);
-    let pokemonImage = data.sprites.front_default;
-    console.log(pokemonImage);
-}
-
-//Show the image on hover
-let input = "";
 let pokemon = document.querySelectorAll('.poke');
+//foreach pokemon name on hover
+let input = "";
 
 pokemon.forEach(pokemonName => {
     pokemonName.addEventListener('mouseover', () => {
@@ -156,6 +146,15 @@ pokemon.forEach(pokemonName => {
     })
 })
 
+//Get the pokemon images
+async function pokemonImages(input) {
+    let pokeAPI = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
+    let data = await pokeAPI.json();
+    let imageSprite = data.sprites.front_default;
+    console.log(imageSprite);
+    let image = document.querySelector('.pokemonImage');
+    image.innerHTML = `<img alt="pokemon image ${input}" src="${imageSprite}">`;
+}
 
 /*
  *  ######################
@@ -163,15 +162,25 @@ pokemon.forEach(pokemonName => {
  *  ######################
  */
 
-let redCircle = document.querySelector('.chaser');
-let box = document.querySelector('.box');
+document.getElementById('boxChase').addEventListener('mousemove', function () {
+    myFunction(event);
+});
 
-const onMouseMove = (e) => {
-    redCircle.style.left = e.pageX + 'px';
-    redCircle.style.top = e.pageY + 'px';
+let cursor = document.querySelector('.chaser');
+function myFunction(e) {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+    cursor.style.left = (mouseX - 25) + 'px';
+    cursor.style.top = (mouseY - 25) + 'px';
 }
 
-box.addEventListener('mousemove', onMouseMove);
+/*
+ *  ######################
+ *      RUNNING CIRCLE
+ *  ######################
+ */
+
+
 
 /*
  *
